@@ -19,12 +19,12 @@ const User = ({
           <span>{location}</span>
         </p>  
       )}
-      <div>
-        <div className={classes.stats}>
+      <div className={classes.stats}>
+        <div>
             <p>Seguidores:</p>
             <p className={classes.number}>{followers}</p>
         </div>
-        <div className={classes.stats}>
+        <div>
             <p>Seguindo:</p>
             <p className={classes.number}>{following}</p>
         </div>
