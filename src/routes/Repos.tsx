@@ -30,28 +30,28 @@ const Repos = () => {
                 const data = await res.json();
                 console.log("data:", data);
 
-                setRepos(data);
+            setRepos(data);
             } catch (err) {
                 console.error("erro na fetch:", err);
             } finally {
                 setIsLoading(false);
-            }
+            };
         };
 
         loadRepos(username);
-    }, [username]);   // ⬅️ reage à mudança
+    }, [username]);   //reage à mudança
 
     // early return
     if (!repos && isLoading) return <Loader />;
 
     return (
-        <div>
+        <div className={classes.repos}>
             <BackBtn />
             <h2>Explore os repositórios do usuário: {username}</h2>
             {/* checagem para se nao houver repositorios */}
             {repos && repos.length === 0 && <p>Não há repositórios.</p>}
             {repos && repos.length > 0 && (
-                <div>
+                <div className={classes.repos_container}>
                     {repos.map((repo: RepoProps) => (
                         <Repo key={repo.name} {...repo} />
                     ))}
